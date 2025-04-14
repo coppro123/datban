@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Danh sách món ăn</h1>
+<h1>Danh sách đồ gia dụng</h1>
 
 <div class="row">
 @foreach ($foods as $item)

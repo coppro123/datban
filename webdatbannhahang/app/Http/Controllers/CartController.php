@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BanAn;
 use App\Models\Food;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -26,7 +27,7 @@ class CartController extends Controller
                 'ten' => $food->ten,
                 'mota' => $food->mota,
                 'image' => $food->image,
-                'gia'=>$food->gia,
+                'gia' => $food->gia,
                 'soluong' => 1
             ];
         }
@@ -80,5 +81,24 @@ class CartController extends Controller
         return redirect()->route('home')->with('success', 'Đặt hàng thành công!');
     }
 
+    public function update(Request $request, $id)
+    {
+        $cart = session()->get('cart', []);
+        if (isset($cart[$id])) {
+            $cart[$id]['soluong'] = $request->input('soluong');
+            session()->put('cart', $cart);
+        }
+        return redirect()->back()->with('success', 'Cập nhật số lượng thành công');
+    }
+
+    public function remove($id)
+    {
+        $cart = session()->get('cart', []);
+        if (isset($cart[$id])) {
+            unset($cart[$id]);
+            session()->put('cart', $cart);
+        }
+        return redirect()->back()->with('success', 'Xóa món thành công');
+    }
     //
 }

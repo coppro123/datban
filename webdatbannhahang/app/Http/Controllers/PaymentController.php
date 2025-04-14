@@ -14,7 +14,8 @@ class PaymentController extends Controller
 {
     public function createPayment(Request $request)
     {
-        $amount = $request->input('amount');
+        $shipping_info = session('shipping_info', []);
+        $amount = $shipping_info['amount'];
 
         $vnp_TmnCode = env('VNPAY_TMNCODE');
         $vnp_HashSecret = env('VNPAY_HASHSECRET');
@@ -72,6 +73,8 @@ class PaymentController extends Controller
             // Lấy giỏ hàng từ session
             $cart = session('cart', []);
 
+            $shipping_info = session('shipping_info', []);
+
             if (empty($cart)) {
                 return 'Không có sản phẩm trong giỏ hàng!';
             }
@@ -86,6 +89,10 @@ class PaymentController extends Controller
             $order = Order::create([
                 'user_id' => Auth::id() ?? null,
                 'tongtien' => $tong_tien,
+                'status' => 'Chờ xác nhận',
+                'address' => $shipping_info['address'],
+                'address' => $shipping_info['phone'],
+                'address' => $shipping_info['note'],
             ]);
 
             // Tạo chi tiết đơn hàng

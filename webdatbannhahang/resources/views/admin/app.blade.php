@@ -25,7 +25,7 @@
                         <a class="nav-link active" href="/admin">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/food">Món ăn</a>
+                        <a class="nav-link" href="/admin/food">Đồ gia dụng</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/orders">Đơn hàng</a>

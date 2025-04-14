@@ -3,8 +3,8 @@
 @section('content')
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3>Danh sách món ăn</h3>
-        <a href="/admin/food/create" class="btn btn-primary">+ Thêm món ăn</a>
+        <h3>Danh sách đồ gia dụng</h3>
+        <a href="/admin/food/create" class="btn btn-primary">+ Thêm</a>
     </div>
 
     <table class="table table-bordered table-striped">
@@ -26,7 +26,7 @@
                     <td>{{ $item->ten }}</td>
                     <td>{{ $item->mota }}</td>
                     <td>
-                        <img src="{{ asset('storage/images/' . $item->image) }}" width="100" class="img-thumbnail" alt="ảnh món ăn">
+                        <img src="{{$item->image}}" width="100" class="img-thumbnail" alt="ảnh món ăn">
                     </td>
                     <td>{{$item->gia}}</td>
                     <td>

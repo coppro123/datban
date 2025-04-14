@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\FoodController as AdminFoodController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FoodController;
@@ -33,6 +34,16 @@ Route::get('/vnpay-return', [PaymentController::class, 'vnpayReturn'])->name('vn
 
 //don hang cua toi
 Route::get('/don-hang-cua-toi', [OrderController::class, 'myOrders'])->middleware('auth');
+Route::post('/order/create', [OrderController::class, 'createOrder'])->name('order.create');
+Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+
+
+
+Route::put('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
+Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+
+
+
 
 //admin route
 Route::group(['middleware' => 'auth'], function () {
@@ -46,5 +57,9 @@ Route::group(['middleware' => 'auth'], function () {
         
         Route::get('/admin/food/edit/{id}',[AdminFoodController::class, 'edit']);
         Route::put('/admin/food/edit/{id}',[AdminFoodController::class, 'update']);
+
+        Route::get('/admin/orders', [AdminOrderController::class, 'index']);
+
+        Route::put('/admin/orders/update-status/{id}', [AdminOrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
     });
 });

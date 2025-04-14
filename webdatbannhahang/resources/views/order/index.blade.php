@@ -7,7 +7,8 @@
 <div style="border:1px solid #ccc; padding:15px; margin-bottom:20px;">
     <strong>Mã đơn hàng:</strong> {{ $order->id }} <br>
     <strong>Ngày đặt:</strong> {{ $order->created_at->format('d/m/Y H:i') }} <br>
-    <strong>Tổng tiền:</strong> {{ number_format($order->tongtien) }} VNĐ
+    <strong>Tổng tiền:</strong> {{ number_format($order->tongtien) }} VNĐ <br>
+    <strong>Trạng thái đơn hàng:</strong> {{$order-> status }} 
 
     <h4>Chi tiết đơn hàng:</h4>
     <table class="table" border="1" cellpadding="10" cellspacing="0">
