@@ -17,7 +17,8 @@ return [
     | the channels present in the list of "channels" configured below.
     |
     */
-
+    //hello
+    
     'default' => env('LOG_CHANNEL', 'stack'),
 
     /*
