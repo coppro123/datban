@@ -2,9 +2,9 @@
 
 @section('content')
 
-<h1>Thêm món ăn</h1>
+<h1>Thêm sản phẩm</h1>
 <form action="{{ url('/admin/food') }}" method="POST">
-    <!-- CSRF token nếu dùng Laravel -->
+    
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
     <label for="ten">Tên món ăn:</label><br>

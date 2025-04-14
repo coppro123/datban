@@ -7,7 +7,7 @@
     </a>
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="/food" class="nav-link px-2 link-dark">Món Ăn</a></li>
+        <li><a href="/food" class="nav-link px-2 link-dark">Đồ gia dụng</a></li>
         <li><a href="/cart" class="nav-link px-2 link-dark">Giỏ Hàng</a></li>
         <li><a href="/don-hang-cua-toi" class="nav-link px-2 link-dark">Đơn Hàng Của Tôi</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
